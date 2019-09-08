@@ -7,6 +7,7 @@ using System.Windows;
 using System.Management;
 using System.IO.Ports;
 using System.Timers;
+using System.Windows.Input;
 
 
 namespace COMList
@@ -107,6 +108,28 @@ namespace COMList
                 commsItemsControl.ItemsSource = sortedDisplayList;
             }
         }
+
+        public void keyDownEventHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Close();
+            }
+            else if (e.Key == Key.Space)
+            {
+                ScanButton_Click(null, null);
+            }
+            else if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+
+        }
+
+        public void keyUpEventHandler(object sender, KeyEventArgs e)
+        {
+        }
+
     }
 
     public class CommPort
